@@ -58,5 +58,22 @@ class GCDViewController : UIViewController {
         dispathGroup.notify(queue: .global()) {
             print("Done")
         }
+        
+        
+        
+        //Defer
+        print("Defer 1")
+        defer {
+            print("Defer 2")
+        }
+        print("Defer 3")
+        print("Defer 4")
+        
+        //Main aync
+        print("Main aync 1")
+        DispatchQueue.main.async {
+            print("Main aync 2")
+        }
+        print("Main aync 3")
     }
 }
