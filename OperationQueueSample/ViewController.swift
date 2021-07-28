@@ -6,14 +6,19 @@
 //
 
 import UIKit
-
+import OperationQueuer
 class ViewController: UIViewController {
-
+    let queue = Queuer(name: "MyCustomQueue", maxConcurrentOperationCount: Int.max, qualityOfService: .default)
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        queue.addOperation {
+            print("Hello World")
+        }
+        queue.pause()
+        queue.addOperation {
+            print("Waiting for to resume")
+        }
+        queue.resume()
     }
-
-
 }
 
