@@ -16,6 +16,7 @@
 		311A666726B18C0F0006ADA1 /* OperationQueueSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A666626B18C0F0006ADA1 /* OperationQueueSampleTests.swift */; };
 		311A667226B18C0F0006ADA1 /* OperationQueueSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A667126B18C0F0006ADA1 /* OperationQueueSampleUITests.swift */; };
 		311A668126B18C220006ADA1 /* OperationQueuer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311A668026B18C220006ADA1 /* OperationQueuer.xcframework */; };
+		31F7BE8026B1B06E009F394F /* GCDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F7BE7F26B1B06E009F394F /* GCDViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		311A667126B18C0F0006ADA1 /* OperationQueueSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationQueueSampleUITests.swift; sourceTree = "<group>"; };
 		311A667326B18C0F0006ADA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		311A668026B18C220006ADA1 /* OperationQueuer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = OperationQueuer.xcframework; sourceTree = "<group>"; };
+		31F7BE7F26B1B06E009F394F /* GCDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				311A664F26B18C0E0006ADA1 /* AppDelegate.swift */,
 				311A665126B18C0E0006ADA1 /* SceneDelegate.swift */,
 				311A665326B18C0E0006ADA1 /* ViewController.swift */,
+				31F7BE7F26B1B06E009F394F /* GCDViewController.swift */,
 				311A665526B18C0E0006ADA1 /* Main.storyboard */,
 				311A665826B18C0E0006ADA1 /* Assets.xcassets */,
 				311A665A26B18C0E0006ADA1 /* LaunchScreen.storyboard */,
@@ -273,6 +276,7 @@
 				311A665426B18C0E0006ADA1 /* ViewController.swift in Sources */,
 				311A665026B18C0E0006ADA1 /* AppDelegate.swift in Sources */,
 				311A665226B18C0E0006ADA1 /* SceneDelegate.swift in Sources */,
+				31F7BE8026B1B06E009F394F /* GCDViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

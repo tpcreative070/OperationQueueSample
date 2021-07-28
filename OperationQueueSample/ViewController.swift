@@ -8,7 +8,13 @@
 import UIKit
 import OperationQueuer
 class ViewController: UIViewController {
-    let queue = Queuer(name: "MyCustomQueue", maxConcurrentOperationCount: Int.max, qualityOfService: .default)
+    
+    
+    @IBAction func tappedGCD(){
+        present(GCDViewController(), animated: true, completion: nil)
+    }
+    
+    let queue = Queuer(name: "MyCustomQueue", maxConcurrentOperationCount: Int.max, qualityOfService: .background)
     override func viewDidLoad() {
         super.viewDidLoad()
         queue.addOperation {
@@ -26,14 +32,12 @@ class ViewController: UIViewController {
     func concurrent(){
         let concurrentOperationA = ConcurrentOperation { _ in
             print("concurrentOperationA waiting...")
-            Thread.sleep(forTimeInterval: 2)
             for i in 1...1000 {
                 print("concurrentOperationA \(i)")
             }
         }
         let concurrentOperationB = ConcurrentOperation { _ in
             print("concurrentOperationB waiting...")
-            Thread.sleep(forTimeInterval: 2)
             for i in 1...1000{
                 print("concurrentOperationB \(i)")
             }
@@ -41,7 +45,6 @@ class ViewController: UIViewController {
         
         let concurrentOperationC = ConcurrentOperation { _ in
             print("concurrentOperationC waiting...")
-            Thread.sleep(forTimeInterval: 2)
             for i in 1...1000{
                 print("concurrentOperationC \(i)")
             }
@@ -49,7 +52,6 @@ class ViewController: UIViewController {
         
         let concurrentOperationD = ConcurrentOperation { _ in
             print("concurrentOperationD waiting...")
-            Thread.sleep(forTimeInterval: 2)
             for i in 1...1000{
                 print("concurrentOperationD \(i)")
             }
@@ -57,7 +59,6 @@ class ViewController: UIViewController {
         
         let concurrentOperationE = ConcurrentOperation { _ in
             print("concurrentOperationE waiting...")
-            Thread.sleep(forTimeInterval: 2)
             for i in 1...1000{
                 print("concurrentOperationE \(i)")
             }
