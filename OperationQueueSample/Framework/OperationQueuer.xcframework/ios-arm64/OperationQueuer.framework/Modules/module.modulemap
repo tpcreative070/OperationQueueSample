@@ -1,0 +1,11 @@
+framework module OperationQueuer {
+  umbrella header "OperationQueuer.h"
+
+  export *
+  module * { export * }
+}
+
+module OperationQueuer.Swift {
+    header "OperationQueuer-Swift.h"
+    requires objc
+}
