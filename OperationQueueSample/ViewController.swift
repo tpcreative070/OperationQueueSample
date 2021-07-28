@@ -19,6 +19,30 @@ class ViewController: UIViewController {
             print("Waiting for to resume")
         }
         queue.resume()
+        concurrent()
+    }
+    
+    func concurrent(){
+        let concurrentOperationA = ConcurrentOperation { _ in
+            print("concurrentOperationA waiting...")
+            Thread.sleep(forTimeInterval: 2)
+            for i in 1...1000 {
+                print("concurrentOperationA \(i)")
+            }
+        }
+        let concurrentOperationB = ConcurrentOperation { _ in
+            print("concurrentOperationB waiting...")
+            Thread.sleep(forTimeInterval: 2)
+            for i in 1...1000{
+                print("concurrentOperationB \(i)")
+            }
+        }
+        queue.addChainedOperations([concurrentOperationA, concurrentOperationB]) {
+            print("addChainedOperations")
+        }
+        queue.addCompletionHandler {
+           print("Finish")
+        }
     }
 }
 
