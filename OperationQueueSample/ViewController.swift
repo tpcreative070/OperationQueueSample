@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         }
         queue.resume()
         concurrent()
+        blockOperation()
     }
     
     func concurrent(){
@@ -69,6 +70,48 @@ class ViewController: UIViewController {
         }
         queue.waitUntilAllOperationsAreFinished()
         print("Already finished")
+        
+        let operationQueue : OperationQueue = OperationQueue()
+        operationQueue.maxConcurrentOperationCount = 1
+        operationQueue.addOperation(testQueue())
+        operationQueue.addOperations([testQueue()], waitUntilFinished: true)
+        
+    }
+    
+    func blockOperation(){
+        let queue = OperationQueue()
+
+        let operation1 = BlockOperation{
+           print("operation1")
+        }
+
+        let operation2 = BlockOperation {
+            print("operation2")
+        }
+        
+        let operation3 = BlockOperation {
+            print("operation3")
+        }
+    
+        operation2.addDependency(operation3) // THIS IS THE KEY CODE IN YOUR CASE
+        operation1.addDependency(operation2)
+        queue.addOperation(operation1)
+        queue.addOperation(operation2)
+        queue.addOperation(operation3)
+        //3,2,1
     }
 }
 
+class testQueue : Operation {
+    override func main() {
+        print("Main")
+    }
+    
+    override func start() {
+        print("start")
+    }
+    
+    override func waitUntilFinished() {
+        print("waitUntilFinished")
+    }
+}
