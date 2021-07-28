@@ -41,8 +41,10 @@ class ViewController: UIViewController {
             print("addChainedOperations")
         }
         queue.addCompletionHandler {
-           print("Finish")
+           print("Finished")
         }
+        queue.waitUntilAllOperationsAreFinished()
+        print("Already finished")
     }
 }
 
