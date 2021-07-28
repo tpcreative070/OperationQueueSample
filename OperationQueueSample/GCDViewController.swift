@@ -9,8 +9,10 @@ import UIKit
 class GCDViewController : UIViewController {
     let dispatch = DispatchQueue(label: "conccurent",attributes: .concurrent)
     let dispatchSerial = DispatchQueue(label: "serial")
+    let dispathGroup = DispatchGroup()
     override func viewDidLoad() {
         self.view.backgroundColor = .white
+        //The concurrent meaning is running aync
         dispatch.async {
             print("Concurrent 1")
             print("Concurrent 1.1")
@@ -28,6 +30,7 @@ class GCDViewController : UIViewController {
             print("Concurrent 4.4")
         }
         
+        //The serial meaning is running sync
         dispatchSerial.async {
             print("Serial 1")
             print("Serial 1.1")
@@ -43,6 +46,17 @@ class GCDViewController : UIViewController {
         dispatchSerial.async {
             print("Serial 4")
             print("Serial 4.4")
+        }
+        
+        
+        dispathGroup.enter()
+        print("Dispatch group 1")
+        dispathGroup.leave()
+        dispathGroup.enter()
+        print("Dispatch group 2")
+        dispathGroup.leave()
+        dispathGroup.notify(queue: .global()) {
+            print("Done")
         }
     }
 }
