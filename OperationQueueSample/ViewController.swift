@@ -37,7 +37,31 @@ class ViewController: UIViewController {
                 print("concurrentOperationB \(i)")
             }
         }
-        queue.addChainedOperations([concurrentOperationA, concurrentOperationB]) {
+        
+        let concurrentOperationC = ConcurrentOperation { _ in
+            print("concurrentOperationC waiting...")
+            Thread.sleep(forTimeInterval: 2)
+            for i in 1...1000{
+                print("concurrentOperationC \(i)")
+            }
+        }
+        
+        let concurrentOperationD = ConcurrentOperation { _ in
+            print("concurrentOperationD waiting...")
+            Thread.sleep(forTimeInterval: 2)
+            for i in 1...1000{
+                print("concurrentOperationD \(i)")
+            }
+        }
+        
+        let concurrentOperationE = ConcurrentOperation { _ in
+            print("concurrentOperationE waiting...")
+            Thread.sleep(forTimeInterval: 2)
+            for i in 1...1000{
+                print("concurrentOperationE \(i)")
+            }
+        }
+        queue.addChainedOperations([concurrentOperationA, concurrentOperationB,concurrentOperationC,concurrentOperationD,concurrentOperationE]) {
             print("addChainedOperations")
         }
         queue.addCompletionHandler {
